@@ -1,6 +1,6 @@
 package com.tradevan.demo;
 
-public class MyLife {
+public class CashierLife {
 
   private int life = 100;
 

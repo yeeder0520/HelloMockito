@@ -1,13 +1,11 @@
 package com.tradevan.demo.voiddemo;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 
-import com.tradevan.demo.Calculator;
 import com.tradevan.demo.Cashier;
-import com.tradevan.demo.MyLife;
+import com.tradevan.demo.CashierLife;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -20,11 +18,8 @@ class VoidMethodDemoTest {
   @InjectMocks
   Cashier cashier;
 
-//  @Mock
-//  Calculator calculator;
-
   @Mock
-  MyLife myLife;
+  CashierLife cashierLife;
 
   @Test
   void test_say_trash_talk_to_cashier() {
@@ -35,7 +30,7 @@ class VoidMethodDemoTest {
     cashier.sayTrashTalkToCashier();
 
     // then
-    verify(myLife,times(1)).beAttacked(1);
+    verify(cashierLife, times(1)).beAttacked(1);
   }
 
 

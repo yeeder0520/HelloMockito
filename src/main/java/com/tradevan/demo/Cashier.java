@@ -1,16 +1,13 @@
 package com.tradevan.demo;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Cashier {
 
   private final Calculator calculator;
-  private final MyLife myLife;
+  private final CashierLife cashierLife;
 
-  public Cashier(Calculator calculator, MyLife myLife) {
+  public Cashier(Calculator calculator, CashierLife cashierLife) {
     this.calculator = calculator;
-    this.myLife = myLife;
+    this.cashierLife = cashierLife;
   }
 
   public Integer useCalculate(String operation, int input1, int input2) {
@@ -24,7 +21,7 @@ public class Cashier {
   }
 
   public void sayTrashTalkToCashier() {
-    myLife.beAttacked(1);
+    cashierLife.beAttacked(1);
     System.out.println("OS:不要理，不要生氣，他是瘋子");
   }
 
