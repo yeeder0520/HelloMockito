@@ -16,7 +16,8 @@ public class Cashier {
       case "minus" -> calculator.minus(input1, input2);
       case "multiply" -> calculator.multiply(input1, input2);
       case "divide" -> Calculator.divide(input1, input2);
-      default -> -1;
+      case "throw" -> throw new ThisIsException("ERROR_01", 500);
+      default -> throw new IllegalArgumentException("請不要亂按 : " + operation);
     };
   }
 
