@@ -1,9 +1,13 @@
 package com.tradevan.demo.parameterized;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import com.tradevan.demo.Month;
 import com.tradevan.demo.ParameterizedDemo;
+import java.util.List;
+import java.util.stream.Stream;
+import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
@@ -84,6 +88,34 @@ public class ParameterizedDemoTest {
       int input2,
       int expected) {
     assertThat(input1 + input2).isEqualTo(expected);
+  }
+
+  @ParameterizedTest
+  @MethodSource("provideStringsForIsBlank")
+  void test_given_null_or_blank_string_should_return_true(String input, boolean expected) {
+    assertEquals(expected, Strings.isBlank(input));
+  }
+
+  private static Stream<Arguments> provideStringsForIsBlank() {
+    return Stream.of(
+        Arguments.of(null, true),
+        Arguments.of("", true),
+        Arguments.of("  ", true),
+        Arguments.of("not blank", false)
+    );
+  }
+
+  @ParameterizedTest
+  @MethodSource("provideListTestData")
+  void test_given_list_of_integers_should_return_sum_of_all_elements(List<String> inputList, int expectedSize) {
+    assertThat(inputList).hasSize(expectedSize);
+  }
+
+  private static Stream<Arguments> provideListTestData() {
+    return Stream.of(
+        Arguments.of(List.of("A","B"), 2),
+        Arguments.of(List.of("A","B","C","D"), 4)
+    );
   }
 
 }
