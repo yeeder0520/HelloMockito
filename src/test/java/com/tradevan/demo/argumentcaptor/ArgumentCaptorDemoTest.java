@@ -7,6 +7,7 @@ import com.tradevan.demo.user.UserDto;
 import com.tradevan.demo.user.UserRecord;
 import com.tradevan.demo.user.UserRepository;
 import com.tradevan.demo.user.UserService;
+import java.time.LocalDate;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -53,4 +54,12 @@ public class ArgumentCaptorDemoTest {
 
   }
 
+  @Test
+  void test_assert_times() {
+
+    LocalDate actualDate = LocalDate.of(2023, 6, 25);
+    LocalDate expectedDate = LocalDate.of(2023, 6, 15);
+
+    assertThat(actualDate).hasYear(2023); // 斷言 actualDate 和 anotherExpectedDate 在相同的日期
+  }
 }
