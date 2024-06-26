@@ -23,9 +23,15 @@ public class ExceptionDemoTest {
     int input2 = 3;
     String operation = "play";
 
+    // version 1
     assertThatThrownBy(() -> cashier.useCalculate(operation, input1, input2))
         .isInstanceOf(IllegalArgumentException.class)
         .hasMessage("請不要亂按 : " + operation);
+
+    // version 2
+//    assertThatExceptionOfType(IllegalArgumentException.class)
+//        .isThrownBy(() -> cashier.useCalculate(operation, input1, input2))
+//        .withMessage("請不要亂按 : " + operation);
   }
 
   @Test
