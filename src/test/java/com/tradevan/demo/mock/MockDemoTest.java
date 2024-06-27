@@ -25,13 +25,13 @@ class MockDemoTest {
   void test_use_calculate_when_operation_is_add_input1_is_2_input2_is_3_then_get_5() {
 
     // given
+    given(calculator.add(2, 3)).willReturn(5);
+
+    // when
     int input1 = 2;
     int input2 = 3;
     String operation = "add";
     Integer expected = 5;
-    given(calculator.add(input1, input2)).willReturn(5);
-
-    // when
     Integer actual = cashier.useCalculate(operation, input1, input2);
 
     // then
