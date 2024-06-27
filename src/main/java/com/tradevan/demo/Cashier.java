@@ -7,10 +7,12 @@ public class Cashier {
 
   private final Calculator calculator;
   private final CashierLife cashierLife;
+  private final CashierAction cashierAction;
 
-  public Cashier(Calculator calculator, CashierLife cashierLife) {
+  public Cashier(Calculator calculator, CashierLife cashierLife, CashierAction cashierAction) {
     this.calculator = calculator;
     this.cashierLife = cashierLife;
+    this.cashierAction = cashierAction;
   }
 
   public Integer useCalculate(String operation, int input1, int input2) {
@@ -36,6 +38,10 @@ public class Cashier {
   public void sayTrashTalkToCashier() {
     cashierLife.beAttacked(1);
     System.out.println("OS:不要理，不要生氣，他是瘋子");
+  }
+
+  public String sayHello(String name) {
+    return cashierAction.sayHello(name);
   }
 
 }
