@@ -3,7 +3,7 @@ package com.tradevan.demo.exceptiondemo;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.tradevan.demo.Cashier;
-import com.tradevan.demo.ThisIsException;
+import com.tradevan.demo.exception.ThisIsException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -21,7 +21,7 @@ public class ExceptionDemoTest {
     // given
     int input1 = 2;
     int input2 = 3;
-    String operation = "play";
+    String operation = "亂按";
 
     // version 1
     assertThatThrownBy(() -> cashier.useCalculate(operation, input1, input2))

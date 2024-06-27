@@ -1,5 +1,7 @@
 package com.tradevan.demo;
 
+import com.tradevan.demo.exception.BatteryNotEnoughException;
+
 public class Calculator {
 
   public int add(int a, int b) {
@@ -18,4 +20,11 @@ public class Calculator {
     return a / b;
   }
 
+  public int getCalculatorBatteryValue() throws BatteryNotEnoughException {
+    int battery = 100; //電量
+    if (battery == 0) {
+      throw new BatteryNotEnoughException("電量不足");
+    }
+    return battery;
+  }
 }

@@ -1,5 +1,8 @@
 package com.tradevan.demo;
 
+import com.tradevan.demo.exception.BatteryNotEnoughException;
+import com.tradevan.demo.exception.ThisIsException;
+
 public class Cashier {
 
   private final Calculator calculator;
@@ -19,6 +22,15 @@ public class Cashier {
       case "throw" -> throw new ThisIsException("ERROR_01", 500);
       default -> throw new IllegalArgumentException("請不要亂按 : " + operation);
     };
+  }
+
+  public boolean testCalculate() {
+    try {
+      return calculator.getCalculatorBatteryValue() > 0;
+    } catch (BatteryNotEnoughException e) {
+      System.out.println("OS:電量不足，請充電");
+    }
+    return false;
   }
 
   public void sayTrashTalkToCashier() {

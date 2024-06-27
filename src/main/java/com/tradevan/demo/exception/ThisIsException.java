@@ -1,4 +1,4 @@
-package com.tradevan.demo;
+package com.tradevan.demo.exception;
 
 import lombok.Getter;
 
