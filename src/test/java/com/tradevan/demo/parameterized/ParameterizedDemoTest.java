@@ -107,14 +107,15 @@ public class ParameterizedDemoTest {
 
   @ParameterizedTest
   @MethodSource("provideListTestData")
-  void test_given_list_of_integers_should_return_sum_of_all_elements(List<String> inputList, int expectedSize) {
+  void test_given_list_of_integers_should_return_sum_of_all_elements(List<String> inputList, int expectedSize, boolean expected) {
     assertThat(inputList).hasSize(expectedSize);
+    assertThat(expected).isTrue();
   }
 
   private static Stream<Arguments> provideListTestData() {
     return Stream.of(
-        Arguments.of(List.of("A","B"), 2),
-        Arguments.of(List.of("A","B","C","D"), 4)
+        Arguments.of(List.of("A", "B"), 2, true),
+        Arguments.of(List.of("A", "B", "C", "D"), 4, true)
     );
   }
 
