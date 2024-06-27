@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS SWITCH_GAME;
+
+CREATE TABLE SWITCH_GAME
+(
+    game_id VARCHAR(255) PRIMARY KEY,
+    name    VARCHAR(255),
+    price   INT NOT NULL,
+    stock   INT NOT NULL
+);

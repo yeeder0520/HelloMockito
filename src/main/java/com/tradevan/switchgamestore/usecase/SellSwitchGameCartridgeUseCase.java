@@ -1,5 +1,6 @@
 package com.tradevan.switchgamestore.usecase;
 
+import com.tradevan.switchgamestore.bean.SwitchGameRecord;
 import com.tradevan.switchgamestore.repository.SwitchGameRepository;
 
 public class SellSwitchGameCartridgeUseCase {
@@ -12,9 +13,9 @@ public class SellSwitchGameCartridgeUseCase {
 
   public String sell(String gameName, int sellCount) {
 
-    Integer stock = repository.queryStock(gameName);
+    SwitchGameRecord stockByGameName = repository.findByName(gameName);
 
-    if (sellCount > stock) {
+    if (sellCount > stockByGameName.getStock()) {
       return "庫存不足";
     }
 
