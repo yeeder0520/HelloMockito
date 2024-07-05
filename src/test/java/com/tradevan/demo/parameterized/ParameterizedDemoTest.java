@@ -119,4 +119,18 @@ public class ParameterizedDemoTest {
     );
   }
 
+
+//  @ParameterizedTest
+//  @MethodSource("provideListTestData")
+//  void test_given_list_of_integers_should_return_sum_of_all_elements(List<String> inputList) {
+//    assertThat(inputList).hasSize(expectedSize);
+//    assertThat(expected).isTrue();
+//  }
+//
+//  private static Stream<List> provideListTestData() {
+//    return Stream.of(
+//        List.of("A", "B"),
+//        List.of("A", "B")
+//    );
+//  }
 }

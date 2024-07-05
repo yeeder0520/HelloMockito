@@ -37,7 +37,6 @@ public class Cashier {
 
   public void sayTrashTalkToCashier() {
     cashierLife.beAttacked(1);
-    System.out.println("OS:不要理，不要生氣，他是瘋子");
   }
 
   public String sayHello(String name) {

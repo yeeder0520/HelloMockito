@@ -18,6 +18,7 @@ public class AssertThatDemoTest {
     );
 
     assertThat(userRecordList)
+        .hasSizeGreaterThanOrEqualTo(2)
         .extracting("id", "name", "email", "phone")
         .containsExactly(
             tuple("1", "John", "1@tradevan.com.tw", "123456"),
