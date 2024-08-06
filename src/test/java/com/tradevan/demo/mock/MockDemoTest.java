@@ -63,7 +63,7 @@ class MockDemoTest {
     given(calculator.getCalculatorBatteryValue()).willReturn(100);
 
     // when
-    boolean actual = cashier.testCalculate();
+    boolean actual = cashier.checkCalculateBattery();
 
     // then
     assertThat(actual).isTrue();
@@ -77,7 +77,7 @@ class MockDemoTest {
     given(calculator.getCalculatorBatteryValue()).willThrow(new BatteryNotEnoughException("電量不足"));
 
     // when
-    boolean actual = cashier.testCalculate();
+    boolean actual = cashier.checkCalculateBattery();
 
     // then
     assertThat(actual).isFalse();
