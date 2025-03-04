@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>3.3.0</version>
+    <version>3.4.2</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.tradevan</groupId>
@@ -110,11 +110,9 @@
           <skip>${skipUnitTests}</skip> <!--是否忽略執行測試個案-->
           <parallel>methods</parallel>
           <threadCount>10</threadCount>
-          <argLine>
-            -Dspring.profiles.active=test
-            --add-opens java.base/java.util=ALL-UNNAMED
-            --add-opens java.base/java.lang=ALL-UNNAMED
-          </argLine>
+          <systemPropertyVariables>
+            <spring.profiles.active>test</spring.profiles.active>
+          </systemPropertyVariables>
           <includes>
             <include>**/*Test.java</include>
           </includes>
